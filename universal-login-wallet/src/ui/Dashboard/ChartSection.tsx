@@ -33,6 +33,16 @@ const ChartSection = (props: any) => {
           <h2 className="chart-section-title">Cash (DAI)</h2>
           <p className="chart-section-amount">$ {utils.formatEther(props.balance) / 10}</p>
           <p className="chart-section-text">You can spend up to US$ {utils.formatEther(props.balance) / 10}</p>
+          <div className="send-section">
+            <h2 className="chart-section-title">Send</h2>
+            <p>
+              <input type="text" id="address" placeholder="address" className="input"/>
+            </p>
+            <p className="chart-section-amount">
+              <input type="text" id="amount" placeholder="amount" className="input"></input> 
+            </p>
+            <button onClick={props.sendToken} className="status completed"> Send </button>
+          </div>
         </div>
         <div className="chart-section-block">
           <h2 className="chart-section-title">Assets</h2>

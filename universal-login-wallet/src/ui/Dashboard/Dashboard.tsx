@@ -47,10 +47,7 @@ class Dashboard extends Component<DashboardProps, DashboardState> {
             <Notifications />
             <UserSelect address={this.props.services.identityService.identity.address} name={this.props.services.identityService.identity.name}/>
           </Header>
-          <input type="text" id="address" placeholder="address"/>
-          <input type="text" id="amount" placeholder="amount"></input> 
-          <button onClick={this.sendTokens.bind(this)}> Send </button>
-          <ChartSection services={this.state.services} balance={this.state.balance} />
+          <ChartSection services={this.state.services} balance={this.state.balance} sendToken={this.sendTokens.bind(this)}/>
           <LatestTransfers balance={this.state.balance} />
         </div>
       </div>
