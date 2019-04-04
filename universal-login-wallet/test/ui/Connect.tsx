@@ -6,7 +6,7 @@ import {providers, Wallet, utils} from 'ethers';
 import {Services} from '../../src/services/Services';
 import {setupSdk} from 'universal-login-sdk/test';
 import {ETHER_NATIVE_TOKEN} from 'universal-login-commons';
-import ServicesUnderTest from '../helpers/ServicesUnderTests';
+import preconfigureServices from '../helpers/preconfigureServices';
 import {AppPage} from '../pages/AppPage';
 import {getWallets} from 'ethereum-waffle';
 import {expect} from 'chai';
@@ -24,7 +24,7 @@ describe('UI: Connect', () => {
   before(async () => {
     ({relayer, provider} = await setupSdk({overridePort: 33113}));
     const [wallet] = await getWallets(provider);
-    services = await ServicesUnderTest.createPreconfigured(provider, relayer, [ETHER_NATIVE_TOKEN.address]);
+    services = await preconfigureServices(provider, relayer, [ETHER_NATIVE_TOKEN.address]);
     services.tokenService.start();
     services.balanceService.start();
     services.sdk.start();
