@@ -200,11 +200,13 @@ workflows:
               only:
                 - master
     jobs:
+      - build_klab
       - run_klab:
           requires:
             - build_klab
   fv_test:
     jobs:
+      - build_klab
       - run_klab_1:
           requires:
             - build_klab
