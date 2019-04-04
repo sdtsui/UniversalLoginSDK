@@ -129,6 +129,7 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
+    steps:
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -141,6 +142,7 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
+    steps:
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -153,6 +155,7 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
+    steps:
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -165,6 +168,7 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
+    steps:
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -177,6 +181,7 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
+    steps:
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
