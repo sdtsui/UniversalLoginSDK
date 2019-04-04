@@ -200,23 +200,33 @@ workflows:
               only:
                 - master
     jobs:
-      - run_klab
+      - run_klab:
+          requires:
+            - build_klab
   fv_test:
     jobs:
       - run_klab_1:
+          requires:
+            - build_klab
           filters:
             branches:
               only:
                 - /fv.*/
       - run_klab_2:
+          requires:
+            - build_klab
           filters:
             branches:
               only: /fv.*/
       - run_klab_3:
+          requires:
+            - build_klab
           filters:
             branches:
               only: /fv.*/
       - run_klab_4:
+          requires:
+            - build_klab
           filters:
             branches:
               only: /fv.*/
