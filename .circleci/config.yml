@@ -107,11 +107,10 @@ jobs:
             keys:
                 - universal-login-{{ .Environment.CIRCLE_SHA1 }}
       - run: cd universal-login-wallet && yarn test
-  run_klab:
+
+  build_klab:
     docker:
       - image: circleci/node:10.15
-        environment:
-          TERM: xterm-256color
     steps:
       - checkout
       - run: sudo apt-get install make gcc maven openjdk-8-jdk flex pkg-config libmpfr-dev autoconf libtool pandoc zlib1g-dev z3 libz3-dev
@@ -124,6 +123,12 @@ jobs:
           sudo make link
       - setup_remote_docker:
           docker_layer_caching: true
+
+  run_klab:
+    docker:
+      - image: circleci/node:10.15
+        environment:
+          TERM: xterm-256color
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -136,18 +141,6 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
-    steps:
-      - checkout
-      - run: sudo apt-get install make gcc maven openjdk-8-jdk flex pkg-config libmpfr-dev autoconf libtool pandoc zlib1g-dev z3 libz3-dev
-      - run: git clone https://github.com/dapphub/klab.git
-      - run: |
-          cd klab
-          make deps
-      - run: |
-          cd klab
-          sudo make link
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -160,18 +153,6 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
-    steps:
-      - checkout
-      - run: sudo apt-get install make gcc maven openjdk-8-jdk flex pkg-config libmpfr-dev autoconf libtool pandoc zlib1g-dev z3 libz3-dev
-      - run: git clone https://github.com/dapphub/klab.git
-      - run: |
-          cd klab
-          make deps
-      - run: |
-          cd klab
-          sudo make link
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -184,18 +165,6 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
-    steps:
-      - checkout
-      - run: sudo apt-get install make gcc maven openjdk-8-jdk flex pkg-config libmpfr-dev autoconf libtool pandoc zlib1g-dev z3 libz3-dev
-      - run: git clone https://github.com/dapphub/klab.git
-      - run: |
-          cd klab
-          make deps
-      - run: |
-          cd klab
-          sudo make link
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
@@ -208,18 +177,6 @@ jobs:
       - image: circleci/node:10.15
         environment:
           TERM: xterm-256color
-    steps:
-      - checkout
-      - run: sudo apt-get install make gcc maven openjdk-8-jdk flex pkg-config libmpfr-dev autoconf libtool pandoc zlib1g-dev z3 libz3-dev
-      - run: git clone https://github.com/dapphub/klab.git
-      - run: |
-          cd klab
-          make deps
-      - run: |
-          cd klab
-          sudo make link
-      - setup_remote_docker:
-          docker_layer_caching: true
       - run: |
           export PATH=$PATH:/usr/local/bin
           export KLAB_EVMS_PATH=/home/circleci/project/klab/evm-semantics
